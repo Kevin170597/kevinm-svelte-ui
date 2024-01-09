@@ -1,10 +1,10 @@
 {
 	"name": "kevinm-svelte-ui",
-	"version": "0.0.2",
+	"version": "0.0.4",
 	"description": "Svelte components library by Kevin.",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/Kevin170597/instagrapy.git"
+		"url": "https://github.com/Kevin170597/kevinm-svelte-ui.git"
 	},
 	"scripts": {
 		"dev": "vite dev",
@@ -34,7 +34,6 @@
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^3.0.0",
-		"@sveltejs/kit": "^2.0.0",
 		"@sveltejs/package": "^2.0.0",
 		"@sveltejs/vite-plugin-svelte": "^3.0.0",
 		"@types/eslint": "8.56.0",
@@ -60,6 +59,7 @@
 	"types": "./dist/index.d.ts",
 	"type": "module",
 	"dependencies": {
+		"@sveltejs/kit": "^2.0.0",
 		"svelte-highlight": "^7.4.8"
 	}
 }
