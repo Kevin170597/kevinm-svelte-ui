@@ -1,12 +1,16 @@
 <script lang="ts">
-	import type { Color } from "../types";
-	export let color = 'gray' as Color;
+	import type { Color, Size } from '../types';
+	export let { color, tailwindClass, size } = {
+		color: 'default' as Color,
+		tailwindClass: '' as string,
+		size: 'xs' as Size
+	};
 
 	const setColor = (color: Color): string => {
 		const colors: Record<Color, string> = {
 			black: 'border-[#000]',
 			white: 'border-[#fff]',
-			gray: 'border-[#3F3F46]',
+			gray: 'border-[#858688]',
 			none: 'border-none',
 			default: 'border-[#272728]',
 			primary: 'border-[#0070F0]',
@@ -17,6 +21,18 @@
 		};
 		return colors[color];
 	};
+
+	const setSize = (size: Size): string => {
+		const sizes: Record<Size, string> = {
+			xs: 'border-t',
+			sm: 'border-t-2',
+			md: 'border-t-4',
+			lg: 'border-t-8',
+			xl: 'border-t-[12px]',
+			auto: 'border-t'
+		};
+		return sizes[size];
+	};
 </script>
 
-<div class={`border-t border-t-solid ${setColor(color)} my-2`}></div>
+<div class={`${setSize(size)} border-t-solid ${setColor(color)} ${tailwindClass}`}></div>

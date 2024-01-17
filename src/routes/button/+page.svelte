@@ -1,97 +1,167 @@
 <script lang="ts">
-	import { Button, Text, Icon, CodeBlock } from '$lib/';
-	import { onMount } from 'svelte';
-	import '../../app.css';
-
-	let darkThemeBg = true;
-
-	let radius = 'none';
-	let size = 'auto';
-	let color = 'default';
-	let variant = 'solid';
-	let textColor = 'default';
-
-	$: code =`<Button
-    radius={'${radius}'}
-    size={'${size}'}
-    color={'${color}'}
-    variant={'${variant}'}
->
-    <Text textColor={'${textColor}'}>
-            Button
-        </Text>    
-</Button>`;
-
+    import '../../app.css';
+    import { Button, Title } from "$lib"
 </script>
 
-<div class="bg-slate-600 min-h-[100vh] py-4 px-8 flex gap-4">
-	<div class="w-1/3">
-		<CodeBlock lang="ts" code={code} />
-	</div>
-	<div
-		class={`${
-			darkThemeBg ? 'bg-gray-900' : 'bg-slate-300'
-		} w-1/3 relative flex justify-center items-center rounded-xl`}
-	>
-		<Button {radius} {size} {color} {variant} {textColor}>
-			<Text color={textColor}>Button</Text>
-		</Button>
-		<Button
-			onClick={() => (darkThemeBg = !darkThemeBg)}
-			radius="full"
-			size="md"
-			tailwindClass="absolute top-4 right-6"
-		>
-			<Icon iconName="arrowDown" />
-		</Button>
-	</div>
-	<div>
-		<Text color="white">Radius</Text>
-		<select bind:value={radius} name="" id="">
-			<option value="none">none (default)</option>
-			<option value="sm">sm</option>
-			<option value="md">md</option>
-			<option value="lg">lg</option>
-			<option value="full">full</option>
-		</select>
-		<Text color="white">Size</Text>
-		<select bind:value={size} name="" id="">
-			<option value="auto">auto (default)</option>
-			<option value="xs">xs</option>
-			<option value="sm">sm</option>
-			<option value="md">md</option>
-			<option value="lg">lg</option>
-			<option value="xl">xl</option>
-		</select>
-		<Text color="white">Color</Text>
-		<select bind:value={color} name="" id="">
-			<option value="default">default (default)</option>
-			<option value="white">white</option>
-			<option value="black">black</option>
-			<option value="gray">gray</option>
-			<option value="primary">primary</option>
-			<option value="secondary">secondary</option>
-			<option value="success">success</option>
-			<option value="warning">warning</option>
-			<option value="danger">danger</option>
-		</select>
-		<Text color="white">Variant</Text>
-		<select bind:value={variant} name="" id="">
-			<option value="solid">solid (default)</option>
-			<option value="bordered">bordered</option>
-			<option value="shadow">shadow</option>
-		</select>
-		<Text color="white">Text Color</Text>
-		<select bind:value={textColor} name="" id="">
-			<option value="default">default (default)</option>
-			<option value="white">white</option>
-			<option value="black">black</option>
-			<option value="gray">gray</option>
-			<option value="primary">primary</option>
-			<option value="secondary">secondary</option>
-			<option value="success">success</option>
-			<option value="warning">warning</option>
-			<option value="danger">danger</option>
-		</select>
-	</div>
+<div class="min-h-[100vh] bg-[#000] p-8 flex flex-col gap-2">
+    <Title color="white">Size</Title>
+    <Button size="xs">
+        Button
+    </Button>
+    <Button size="sm">
+        Button
+    </Button>
+    <Button size="md">
+        Button
+    </Button>
+    <Button size="lg">
+        Button
+    </Button>
+    <Button size="xl">
+        Button
+    </Button>
+    <Title color="white">Radius</Title>
+    <Button size="md" radius="none">
+        Button
+    </Button>
+    <Button size="md" radius="sm">
+        Button
+    </Button>
+    <Button size="md" radius="md">
+        Button
+    </Button>
+    <Button size="md" radius="lg">
+        Button
+    </Button>
+    <Button size="md" radius="full">
+        Button
+    </Button>
+    <Title color="white">Color</Title>
+    <Button size="md" radius="lg" color="default">
+        Button
+    </Button>
+    <Button size="md" radius="lg" color="black">
+        Button
+    </Button>
+    <Button size="md" radius="lg" color="white">
+        Button
+    </Button>
+    <Button size="md" radius="lg" color="gray">
+        Button
+    </Button>
+    <Button size="md" radius="lg" color="primary">
+        Button
+    </Button>
+    <Button size="md" radius="lg" color="secondary">
+        Button
+    </Button>
+    <Button size="md" radius="lg" color="success">
+        Button
+    </Button>
+    <Button size="md" radius="lg" color="warning">
+        Button
+    </Button>
+    <Button size="md" radius="lg" color="danger">
+        Button
+    </Button>
+    <Title color="white">Shadow</Title>
+    <div class="flex gap-2">
+        <Button size="md" radius="lg" color="default" shadow={1}>
+            Button
+        </Button>
+        <Button size="md" radius="lg" color="default" shadow={2}>
+            Button
+        </Button>
+        <Button size="md" radius="lg" color="default" shadow={3}>
+            Button
+        </Button>
+    </div>
+    <div class="flex gap-2">
+        <Button size="md" radius="lg" color="black" shadow={1}>
+            Button
+        </Button>
+        <Button size="md" radius="lg" color="black" shadow={2}>
+            Button
+        </Button>
+        <Button size="md" radius="lg" color="black" shadow={3}>
+            Button
+        </Button>
+    </div>
+    <div class="flex gap-2">
+        <Button size="md" radius="lg" color="white" shadow={1}>
+            Button
+        </Button>
+        <Button size="md" radius="lg" color="white" shadow={2}>
+            Button
+        </Button>
+        <Button size="md" radius="lg" color="white" shadow={3}>
+            Button
+        </Button>
+    </div>
+    <div class="flex gap-2">
+        <Button size="md" radius="lg" color="gray" shadow={1}>
+            Button
+        </Button>
+        <Button size="md" radius="lg" color="gray" shadow={2}>
+            Button
+        </Button>
+        <Button size="md" radius="lg" color="gray" shadow={3}>
+            Button
+        </Button>
+    </div>
+    <div class="flex gap-2">
+        <Button size="md" radius="lg" color="primary" shadow={1}>
+            Button
+        </Button>
+        <Button size="md" radius="lg" color="primary" shadow={2}>
+            Button
+        </Button>
+        <Button size="md" radius="lg" color="primary" shadow={3}>
+            Button
+        </Button>
+    </div>
+    <div class="flex gap-2">
+        <Button size="md" radius="lg" color="secondary" shadow={1}>
+            Button
+        </Button>
+        <Button size="md" radius="lg" color="secondary" shadow={2}>
+            Button
+        </Button>
+        <Button size="md" radius="lg" color="secondary" shadow={3}>
+            Button
+        </Button>
+    </div>
+    <div class="flex gap-2">
+        <Button size="md" radius="lg" color="success" shadow={1}>
+            Button
+        </Button>
+        <Button size="md" radius="lg" color="success" shadow={2}>
+            Button
+        </Button>
+        <Button size="md" radius="lg" color="success" shadow={3}>
+            Button
+        </Button>
+    </div>
+    <div class="flex gap-2">
+        <Button size="md" radius="lg" color="warning" shadow={1}>
+            Button
+        </Button>
+        <Button size="md" radius="lg" color="warning" shadow={2}>
+            Button
+        </Button>
+        <Button size="md" radius="lg" color="warning" shadow={3}>
+            Button
+        </Button>
+    </div>
+    <div class="flex gap-2">
+        <Button size="md" radius="lg" color="danger" shadow={1}>
+            Button
+        </Button>
+        <Button size="md" radius="lg" color="danger" shadow={2}>
+            Button
+        </Button>
+        <Button size="md" radius="lg" color="danger" shadow={3}>
+            Button
+        </Button>
+    </div>
 </div>

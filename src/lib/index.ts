@@ -17,5 +17,7 @@ export { default as Header } from "./components/widgets/Header.svelte";
 export { default as OnThisPage } from "./components/widgets/OnThisPage.svelte";
 export { default as SideBar } from "./components/widgets/SideBar.svelte";
 export { default as Table } from "./components/widgets/Table.svelte";
-export { default as TextCard } from "./components/widgets/TextCard.svelte";
-export { default as Accordion } from "./components/widgets/Accordion.svelte"
+export { default as Card } from "./components/widgets/Card.svelte";
+export { default as Accordion } from "./components/widgets/Accordion.svelte";
+export { default as Input } from "./components/widgets/Input.svelte";
+export { default as TextArea } from "./components/widgets/TextArea.svelte";

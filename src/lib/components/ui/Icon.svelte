@@ -2,12 +2,12 @@
 	import type { Color } from "../types";
 	export let { iconName, fill, size } = {
 		iconName: '' as string,
-		fill: 'white' as Color,
+		fill: 'white' as Color | string,
 		size: 24 as number
 	};
 
-	const setFontColor = (fill: Color): string => {
-		const colors: Record<Color, string> = {
+	const setFontColor = (fill: Color | string): string => {
+		const colors: Record<Color | string, string> = {
 			white: '#fff',
 			black: '#000',
 			gray: '#858688',
@@ -19,7 +19,7 @@
 			warning: '#F5A524',
 			danger: '#F31260'
 		};
-		return colors[fill];
+		return colors[fill] || fill;
 	};
 </script>
 

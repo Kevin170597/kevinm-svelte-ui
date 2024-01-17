@@ -1,3 +1,3 @@
 # Svelte components library. 
 
-In progress.
+Testing first functional release.
