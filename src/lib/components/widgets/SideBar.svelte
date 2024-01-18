@@ -4,12 +4,64 @@
 	import type { Size, Color, Radius } from '../types';
 	import { Accordion } from '../../index';
 
-	export let { tailwindClass, size, shadow, color, radius } = {
+	type Link = {
+		label: string,
+		href?: string,
+		icon?: string,
+		activePath?: string,
+		sublinks?: {
+			label: string,
+			href: string,
+			icon?: string,
+			activePath?: string
+		}[]
+	};
+
+	let linksArray: Link[] = [
+		{
+			label: 'Link 1',
+			href: '/',
+			icon: 'grid',
+			activePath: '/'
+		},
+		{
+			label: 'Link 2',
+			href: '/',
+			icon: 'clock',
+			activePath: '/side-bar'
+		},
+		{
+			label: 'Group 1',
+			sublinks: [
+				{
+					label: 'Group Link 1',
+					href: '/side-bar',
+					icon: 'clock',
+					activePath: '/'
+				},
+				{
+					label: 'Group Link 2',
+					href: '/',
+					icon: 'clock',
+					activePath: '/'
+				}
+			]
+		},
+		{
+			label: 'Link 3',
+			href: '/',
+			icon: 'picture',
+			activePath: '/'
+		}
+	];
+
+	export let { tailwindClass, size, shadow, color, radius, links } = {
 		tailwindClass: '' as string,
 		size: 'md' as Size,
 		shadow: 0 as 0 | 1 | 2 | 3,
 		color: 'default' as Color,
-		radius: 'none' as Radius
+		radius: 'none' as Radius,
+		links: linksArray as Link[]
 	};
 
 	const setFontColor = (color: Color): string => {
@@ -75,44 +127,6 @@
 		};
 		return colors[color];
 	};
-
-	let links = [
-		{
-			label: 'Link 1',
-			href: '/',
-			icon: 'grid',
-			activePath: '/'
-		},
-		{
-			label: 'Link 2',
-			href: '/',
-			icon: 'clock',
-			activePath: '/side-bar'
-		},
-		{
-			label: 'Group 1',
-			sublinks: [
-				{
-					label: 'Group Link 1',
-					href: '/side-bar',
-					icon: 'clock',
-					activePath: '/'
-				},
-				{
-					label: 'Group Link 2',
-					href: '/',
-					icon: 'clock',
-					activePath: '/'
-				}
-			]
-		},
-		{
-			label: 'Link 3',
-			href: '/',
-			icon: 'picture',
-			activePath: '/'
-		}
-	];
 </script>
 
 <Container {color} {radius} {shadow} tailwindClass="p-3 w-full flex flex-col gap-1 {tailwindClass}">
