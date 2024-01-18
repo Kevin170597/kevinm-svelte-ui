@@ -21,3 +21,5 @@ export { default as Card } from "./components/widgets/Card.svelte";
 export { default as Accordion } from "./components/widgets/Accordion.svelte";
 export { default as Input } from "./components/widgets/Input.svelte";
 export { default as TextArea } from "./components/widgets/TextArea.svelte";
+export { default as Switch } from "./components/widgets/Switch.svelte";
+export { default as Checkbox } from "./components/widgets/Checkbox.svelte";

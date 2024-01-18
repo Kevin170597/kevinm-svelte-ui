@@ -20,8 +20,8 @@
 	{setRadius(radius)} 
 	{setShadow(shadow, color)} 
 	{setSize(size)} 
-	{tailwindClass} 
-	w-fit"
+	w-fit
+	{tailwindClass}"
 >
 	<slot />
 </div>

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Container, Title, Divider, Text } from '../ui';
+	import { Container, Divider, Text } from '../ui';
 	import type { Color, Radius, Size } from '../types';
 	import { setTextColorOverBackground } from '../helpers';
 
@@ -31,7 +31,7 @@
 	};
 </script>
 
-<Container {id} {shadow} {color} {radius} {tailwindClass}>
+<Container {id} {shadow} {color} {radius} tailwindClass="{tailwindClass}">
 	{#if title}
 		<Text {size} tailwindClass="p-3 {setTextColorOverBackground(color)}">{title}</Text>
 	{/if}

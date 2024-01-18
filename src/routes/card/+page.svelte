@@ -1,4 +1,5 @@
 <script lang="ts">
+	import "../../app.css"
 	import { Card, Image, Button, Title, Text } from '$lib';
 </script>
 
@@ -781,7 +782,7 @@
 		color="default"
 		radius="lg"
 		shadow={1}
-		tailwindClass="overflow-hidden relative w-1/6"
+		tailwindClass="overflow-hidden relative w-2/4"
 	>
 		<div class="p-3 flex flex-col gap-3">
 			<Text color="gray" size="sm">
@@ -799,7 +800,7 @@
 			color="warning"
 			radius="lg"
 			shadow={3}
-			tailwindClass="overflow-hidden relative w-1/4"
+			tailwindClass="overflow-hidden relative w-2/6"
 		>
 			<Image
 				tailwindClass=""
@@ -816,7 +817,7 @@
 				Pokedex
 			</Button>
 		</Card>
-		<Card title="Gastly" color="secondary" radius="lg" shadow={2} tailwindClass="w-1/4">
+		<Card title="Gastly" color="secondary" radius="lg" shadow={2} tailwindClass="w-2/6">
 			<div class="p-2">
 				<Image
 					tailwindClass=""
@@ -827,7 +828,7 @@
 				<Button color="black" radius="lg" shadow={2} tailwindClass="mt-2 w-full">Pokedex</Button>
 			</div>
 		</Card>
-		<Card color="gray" footer="Normal" radius="lg" shadow={2} tailwindClass="w-1/4">
+		<Card color="gray" footer="Normal" radius="lg" shadow={2} tailwindClass="w-2/6">
 			<div class="p-2 flex flex-col gap-2">
 				<Image
 					tailwindClass=""
