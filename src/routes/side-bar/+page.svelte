@@ -1,10 +1,48 @@
 <script lang="ts">
 	import { SideBar, Title } from '$lib';
+
+    let linksArray = [
+		{
+			label: 'Link 1',
+			href: '/',
+			icon: 'grid',
+			activePath: '/'
+		},
+		{
+			label: 'Link 2',
+			href: '/',
+			icon: 'clock',
+			activePath: '/side-bar'
+		},
+		{
+			label: 'Group 1',
+			sublinks: [
+				{
+					label: 'Group Link 1',
+					href: '/side-bar',
+					icon: 'clock',
+					activePath: '/'
+				},
+				{
+					label: 'Group Link 2',
+					href: '/',
+					icon: 'clock',
+					activePath: '/'
+				}
+			]
+		},
+		{
+			label: 'Link 3',
+			href: '/',
+			icon: 'picture',
+			activePath: '/'
+		}
+	];
 </script>
 
 <div class="min-h-[100vh] bg-[#000] p-8 flex flex-col gap-2">
 	<Title color="white">Size</Title>
-	<SideBar size="xs" color="default" />
+	<SideBar links={linksArray} size="xs" color="default" />
 	<SideBar size="sm" color="default" />
 	<SideBar size="md" color="default" />
 	<SideBar size="lg" color="default" />

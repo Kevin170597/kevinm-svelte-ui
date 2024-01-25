@@ -23,3 +23,6 @@ export { default as Input } from "./components/widgets/Input.svelte";
 export { default as TextArea } from "./components/widgets/TextArea.svelte";
 export { default as Switch } from "./components/widgets/Switch.svelte";
 export { default as Checkbox } from "./components/widgets/Checkbox.svelte";
+export { default as Tabs } from "./components/widgets/Tabs.svelte";
+export { default as Select } from "./components/widgets/Select.svelte";
+export { default as Modal } from "./components/widgets/Modal.svelte";
