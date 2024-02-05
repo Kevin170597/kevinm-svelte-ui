@@ -25,4 +25,4 @@ import { Button } from 'sveltekev'
 
 ## Documentation
 
-[SvelteKev Docs](https://kevinm-docs.vercel.app)
+[SvelteKev Docs](https://kevinm-docs.vercel.app/p/sveltekev)
