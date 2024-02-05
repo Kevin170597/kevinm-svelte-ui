@@ -1,10 +1,10 @@
 {
-	"name": "kevinm-svelte-ui",
-	"version": "0.0.7",
-	"description": "Svelte components library by Kevin.",
+	"name": "sveltekev",
+	"version": "0.0.8",
+	"description": "Svelte components library by Kevin <3.",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/Kevin170597/kevinm-svelte-ui.git"
+		"url": "https://github.com/Kevin170597/sveltekev.git"
 	},
 	"scripts": {
 		"dev": "vite dev",
