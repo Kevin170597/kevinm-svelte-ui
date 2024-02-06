@@ -1,12 +1,12 @@
 {
 	"name": "sveltekev",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Svelte components library by Kevin <3.",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/Kevin170597/sveltekev.git"
 	},
-	"homepage": "https://kevinm-docs/p/sveltekev",
+	"homepage": "https://kevinm-docs.vercel.app/p/sveltekev",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build && npm run package",
