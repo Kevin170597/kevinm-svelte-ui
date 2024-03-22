@@ -3,7 +3,8 @@
 	import type { Color, Radius, Size } from '../types';
 	import { setBgColor, setTextColorOverBackground } from '../helpers';
 
-    export let { value, placeholder, color, radius, size, shadow, options, tailwindClass } = {
+    export let { name, value, placeholder, color, radius, size, shadow, options, tailwindClass } = {
+		name: '' as string,
         value: '' as string,
         placeholder: 'Placeholder' as string,
         color: 'default' as Color,
@@ -20,10 +21,11 @@
 
 <Container {color} {radius} {size} {shadow} tailwindClass="p-3 {tailwindClass}">
 	<select
+		{name}
 		bind:value
 		class={`${setBgColor(color)} 
         ${setTextColorOverBackground(color)} 
-        border-none pr-3 cursor-pointer focus:outline-none`}
+        border-none pr-3 cursor-pointer focus:outline-none w-full`}
 	>
 		<option value="" disabled selected>{placeholder}</option>
 		{#each options as option}
