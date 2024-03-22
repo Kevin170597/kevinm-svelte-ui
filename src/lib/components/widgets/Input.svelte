@@ -4,6 +4,7 @@
 	import { setTextColorOverBackground } from '../helpers';
 
 	export let {
+		name,
 		value,
 		label,
 		placeholder,
@@ -16,7 +17,8 @@
 		required,
 		type
 	} = {
-		value: null as string | null,
+		name: '' as string,
+		value: null as string | null | number,
 		label: null as string | null,
 		placeholder: 'Placeholder' as string,
 		variant: 'solid' as Variant,
@@ -69,6 +71,7 @@
 		</div>
 	{/if}
 	<input
+		{name}
 		use:typeAction
 		bind:value
 		{placeholder}
