@@ -5,6 +5,7 @@
 	import { setTextColorOverBackground } from '../helpers';
 
 	export let {
+		name,
 		value,
 		label,
 		placeholder,
@@ -17,6 +18,7 @@
 		required,
 		type
 	} = {
+		name: '' as string,
 		value: null as string | null,
 		label: null as string | null,
 		placeholder: 'Placeholder' as string,
@@ -76,12 +78,13 @@
 		</div>
 	{/if}
 	<textarea
+		{name}
 		use:autosizeAction
 		bind:value
 		{placeholder}
-		class="bg-inherit focus:outline-none {setPlaceHolderColor(
+		class="bg-inherit focus:outline-none {setPlaceHolderColor(color)} {setTextColorOverBackground(
 			color
-		)} {setTextColorOverBackground(color)}"
+		)}"
 	/>
 	{#if !label && required}
 		<p class="text-red-800">*</p>

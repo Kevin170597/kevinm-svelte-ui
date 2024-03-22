@@ -28,7 +28,7 @@
 		shadow: 0 as 0 | 1 | 2 | 3,
 		tailwindClass: '' as string,
 		required: false as boolean,
-		type: 'text' as 'text' | 'password'
+		type: 'text' as 'text' | 'password' | 'number'
 	};
 
 	const setPlaceHolderColor = (color: Color): string => {
