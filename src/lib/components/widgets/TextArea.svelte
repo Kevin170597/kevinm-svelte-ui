@@ -19,7 +19,7 @@
 		type
 	} = {
 		name: '' as string,
-		value: null as string | null,
+		value: null as string | number | null | undefined | any,
 		label: null as string | null,
 		placeholder: 'Placeholder' as string,
 		variant: 'solid' as Variant,
