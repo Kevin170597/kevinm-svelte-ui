@@ -75,7 +75,7 @@
 		use:typeAction
 		bind:value
 		{placeholder}
-		class="bg-inherit focus:outline-none {setPlaceHolderColor(color)} {setTextColorOverBackground(
+		class="bg-inherit focus:outline-none w-full {setPlaceHolderColor(color)} {setTextColorOverBackground(
 			color
 		)}"
 	/>
