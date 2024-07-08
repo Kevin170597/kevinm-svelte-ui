@@ -10,6 +10,9 @@
 		checked: true as boolean
 	};
 
+	export let onToggleOn: () => void = () => {};
+	export let onToggleOff: () => void = () => {};
+
 	const setRadiusBefore = (radius: Radius) => {
 		const radiusMap = {
 			full: 'before:rounded-full',
@@ -20,11 +23,20 @@
 		};
 		return radiusMap[radius];
 	};
+
+	const handleChange = (event: Event) => {
+		const target = event.target as HTMLInputElement;
+		if (target.checked) {
+			onToggleOn();
+		} else {
+			onToggleOff();
+		}
+	};
 </script>
 
 <Container {radius} color={checked ? color : 'default'} {shadow}>
 	<label class="relative inline-block w-[60px] h-[30px]">
-		<input class="opacity-0 w-0 h-0" type="checkbox" bind:checked />
+		<input class="opacity-0 w-0 h-0" type="checkbox" bind:checked on:change={handleChange} />
 		<span
 			class="slider {checked ? setBgColor(color) : setBgColor('default')} 
             absolute cursor-pointer top-0 left-0 right-0 bottom-0 {setRadius(radius)}
