@@ -49,5 +49,7 @@
         <Icon iconName="play" fill="white" size={26} />
         <Icon iconName="user" fill="white" size={26} />
         <Icon iconName="pin" fill="white" size={26} />
+        <Icon iconName="cart" fill="white" size={26} />
+        <Icon iconName="check" fill="white" size={26} />
     </div>
 </div>
