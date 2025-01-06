@@ -1,3 +1,4 @@
+<!-- @migration-task Error while migrating Svelte code: Identifier 'Link' has already been declared -->
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { Link, Container, Button, Icon } from '../ui';

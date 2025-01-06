@@ -1,19 +1,19 @@
 <script lang="ts">
 	import { Modal, Title, Text, Button } from '$lib';
 
-    let radiusNone: boolean = false;
-    let radiusSm: boolean = false;
-    let radiusMd: boolean = false;
-    let radiusLg: boolean = false;
+    let radiusNone: boolean = $state(false);
+    let radiusSm: boolean = $state(false);
+    let radiusMd: boolean = $state(false);
+    let radiusLg: boolean = $state(false);
 
-    let black: boolean = false;
-    let white: boolean = false;
-    let gray: boolean = false;
-    let primary: boolean = false;
+    let black: boolean = $state(false);
+    let white: boolean = $state(false);
+    let gray: boolean = $state(false);
+    let primary: boolean = $state(false);
 
-    let shadow1: boolean = false;
-    let shadow2: boolean = false;
-    let shadow3: boolean = false;
+    let shadow1: boolean = $state(false);
+    let shadow2: boolean = $state(false);
+    let shadow3: boolean = $state(false);
 </script>
 
 <div class="min-h-[100vh] bg-[#000] p-8 flex flex-col gap-2">

@@ -1,3 +1,4 @@
+<!-- @migration-task Error while migrating Svelte code: Encountered an export declaration pattern that is not supported for automigration. -->
 <script lang="ts">
 	import { Container, Title, Link } from '../ui';
 	import type { Color, Radius, Size, Underline } from '../types';

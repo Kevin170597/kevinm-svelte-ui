@@ -1,3 +1,4 @@
+<!-- @migration-task Error while migrating Svelte code: `<tr>` is invalid inside `<table>` -->
 <script lang="ts">
 	import { Container, Text } from '../ui';
 	import type { Radius, Color, Size } from '../types';

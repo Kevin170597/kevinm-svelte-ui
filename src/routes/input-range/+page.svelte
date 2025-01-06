@@ -1,5 +1,5 @@
 <script lang="ts">
-	let value: string = '0';
+	let value: string = $state('0');
 
 	const handleChange = (event: Event) => {
 		const target = event.target as HTMLInputElement;
@@ -7,7 +7,7 @@
 	};
 </script>
 
-<input class="" type="range" bind:value min="0" max="6" step="1" on:input={handleChange} />
+<input class="" type="range" bind:value min="0" max="6" step="1" oninput={handleChange} />
 <p>Selected value: {value}</p>
 
 <style>

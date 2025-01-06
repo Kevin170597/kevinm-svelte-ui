@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Checkbox, Title } from '$lib';
-    let check = true as boolean
+    let check = $state(true as boolean)
 </script>
 
 <div class="min-h-[100vh] bg-[#000] p-8 flex flex-col gap-2">

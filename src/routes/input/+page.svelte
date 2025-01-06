@@ -2,7 +2,7 @@
 	import { Input, Title } from '$lib';
 	import '../../app.css';
 
-	let n: string | null = null;
+	let n: string | null = $state(null);
 </script>
 
 <div class="min-h-[100vh] bg-[#000] p-8 flex flex-col gap-2">
