@@ -5,7 +5,7 @@
 	import type { Size, Color, Radius } from '../types';
 	import { Accordion } from '../../index';
 
-	type Link = {
+	type LinkType = {
 		label: string,
 		href?: string,
 		icon?: string,
@@ -18,7 +18,7 @@
 		}[]
 	};
 
-	let linksArray: Link[] = [
+	let linksArray: LinkType[] = [
 		{
 			label: 'Link 1',
 			href: '/',
@@ -62,7 +62,7 @@
 		shadow: 0 as 0 | 1 | 2 | 3,
 		color: 'default' as Color,
 		radius: 'none' as Radius,
-		links: linksArray as Link[]
+		links: linksArray as LinkType[]
 	};
 
 	const setFontColor = (color: Color): string => {

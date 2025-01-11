@@ -26,3 +26,12 @@ export { default as Checkbox } from "./components/widgets/Checkbox.svelte";
 export { default as Tabs } from "./components/widgets/Tabs.svelte";
 export { default as Select } from "./components/widgets/Select.svelte";
 export { default as Modal } from "./components/widgets/Modal.svelte";
+
+
+export { default as ButtonV2 } from "./components/v2/Button.svelte";
+export { default as TextV2 } from "./components/v2/Text.svelte";
+export { default as TitleV2 } from "./components/v2/Title.svelte";
+export { default as IconV2 } from "./components/v2/Icon.svelte";
+export { default as GridV2 } from "./components/v2/Grid.svelte";
+export { default as FlexV2 } from "./components/v2/Flex.svelte";
+export { default as InputV2 } from "./components/v2/Input.svelte";

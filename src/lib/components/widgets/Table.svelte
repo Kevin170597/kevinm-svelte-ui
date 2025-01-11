@@ -48,28 +48,28 @@
 
 <Container {color} {radius} {shadow} tailwindClass="p-3 {tailwindClass}">
 	<table class="border-collapse w-full">
-		<tr class="w-full">
+		<thead class="w-full">
 			{#if Object.keys(data)}
 				{#each Object.keys(data[0]) as key, i}
-					<th
+					<tr
 						class="text-left py-2 px-4 {setHeaderBgColor(color)} {i === 0
 							? 'rounded-tl-lg rounded-bl-lg'
 							: ''} {i === Object.keys(data[0]).length - 1 ? 'rounded-tr-lg rounded-br-lg' : ''}"
 					>
 						<Text {size} tailwindClass={setFontColor(color)}>{key.toUpperCase()}</Text>
-					</th>
+					</tr>
 				{/each}
 			{/if}
-		</tr>
+		</thead>
 
 		{#each data as row}
-			<tr class="w-full">
+			<thead class="w-full">
 				{#each Object.values(row) as value}
-					<th class="text-left py-2 px-4">
+					<tr class="text-left py-2 px-4">
 						<Text {size} tailwindClass={setFontColor(color)}>{value}</Text>
-					</th>
+					</tr>
 				{/each}
-			</tr>
+			</thead>
 		{/each}
 	</table>
 </Container>
