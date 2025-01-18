@@ -35,3 +35,9 @@ export { default as IconV2 } from "./components/v2/Icon.svelte";
 export { default as GridV2 } from "./components/v2/Grid.svelte";
 export { default as FlexV2 } from "./components/v2/Flex.svelte";
 export { default as InputV2 } from "./components/v2/Input.svelte";
+export { default as LinkV2 } from "./components/v2/Link.svelte";
+export { default as SelectV2 } from "./components/v2/Select.svelte";
+export { default as ImageV2 } from "./components/v2/Image.svelte";
+
+export { default as FlexDnDV2 } from "./components/v2/FlexDnD.svelte";
+export { default as GridDnDV2 } from "./components/v2/GridDnD.svelte";

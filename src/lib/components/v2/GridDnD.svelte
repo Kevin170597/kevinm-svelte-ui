@@ -1,7 +1,9 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
+	import { flip } from 'svelte/animate';
+	import { dndzone } from 'svelte-dnd-action';
 
-	type Gap = 0 | 1 | 2 | 4 | 8 | 12 | 16;
+	type Gap = 1 | 2 | 4 | 8 | 12 | 16;
 
 	type Color =
 		| 'transparent'
@@ -34,64 +36,51 @@
 		gap?: Gap;
 		color?: Color;
 		colorLevel?: 1 | 2 | 3 | 4 | 5 | 6;
-		direction?: 'row' | 'col';
-		justify?: 'start' | 'end' | 'center' | 'between';
-		items?: 'start' | 'end' | 'center';
 	}
 
 	let {
 		children,
+		item = false,
+		items,
+		sz = 2,
 		s,
 		class: clss
 	}: {
-		children: Snippet;
+		item?: boolean;
+		items?: any[];
+		children: Snippet<[item: any]>;
+		sz?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 		s?: Style;
 		class?: string;
 	} = $props();
+
+	export const handleDndConsider = (e: CustomEvent) => {
+		console.log(e.detail.items);
+		items = e.detail.items;
+	};
+
+	export const handleDndFinalize = (e: CustomEvent) => {
+		console.log(e.detail.items);
+		items = e.detail.items;
+	};
 </script>
 
 <div
-	class="flex gap{s?.gap ? s.gap : 0} 
-		color{s?.color ? s.color : 'transparent'}{s?.colorLevel ? `${s.colorLevel}` : 3} 
-		{s?.direction} items{s?.items} justify{s?.justify} 
-		w-full p-4 rounded-lg transition-all duration-200 {clss}"
+	class="{!item ? 'grid grid-cols-12' : `span${sz}`} 
+    color{s?.color ? s.color : 'transparent'}{s?.colorLevel ? `${s.colorLevel}` : 3}
+        {!item ? 'p-4' : ''} w-full rounded-lg gap{s?.gap} transition-all duration-200 {clss}"
+	use:dndzone={{ items: items ?? [], flipDurationMs: 300, dropTargetStyle: { outline: 'none' } }}
+	onconsider={handleDndConsider}
+	onfinalize={handleDndFinalize}
 >
-	{@render children()}
+	{#each items ?? [] as item (item.id)}
+		<div animate:flip={{ duration: 300 }} class={item ? `span${sz}` : ''}>
+			{@render children?.(item)}
+		</div>
+	{/each}
 </div>
 
 <style lang="postcss">
-	.col {
-		@apply flex-col;
-	}
-	.row {
-		@apply flex-row;
-	}
-	.itemscenter {
-		@apply items-center;
-	}
-	.itemsstart {
-		@apply items-start;
-	}
-	.itemsend {
-		@apply items-end;
-	}
-
-	.justifystart {
-		@apply justify-start;
-	}
-	.justifycenter {
-		@apply justify-center;
-	}
-	.justifyend {
-		@apply justify-end;
-	}
-	.justifybetween {
-		@apply justify-between;
-	}
-
-	.gap0 {
-		@apply gap-0;
-	}
 	.gap1 {
 		@apply gap-1;
 	}
@@ -109,6 +98,43 @@
 	}
 	.gap16 {
 		@apply gap-16;
+	}
+
+	.span1 {
+		@apply col-span-1;
+	}
+	.span2 {
+		@apply col-span-2;
+	}
+	.span3 {
+		@apply col-span-3;
+	}
+	.span4 {
+		@apply col-span-4;
+	}
+	.span5 {
+		@apply col-span-5;
+	}
+	.span6 {
+		@apply col-span-6;
+	}
+	.span7 {
+		@apply col-span-7;
+	}
+	.span8 {
+		@apply col-span-8;
+	}
+	.span9 {
+		@apply col-span-9;
+	}
+	.span10 {
+		@apply col-span-10;
+	}
+	.span11 {
+		@apply col-span-11;
+	}
+	.span12 {
+		@apply col-span-12;
 	}
 
 	.colortransparent1 {
@@ -418,40 +444,40 @@
 		@apply bg-cyan-900 text-cyan-100;
 	}
 	.colorsky1 {
-		@apply bg-sky-50  text-sky-400;
+		@apply bg-sky-50 text-sky-400;
 	}
 	.colorsky2 {
-		@apply bg-sky-100  text-sky-400;
+		@apply bg-sky-100 text-sky-400;
 	}
 	.colorsky3 {
-		@apply bg-sky-300  text-sky-500;
+		@apply bg-sky-300 text-sky-500;
 	}
 	.colorsky4 {
-		@apply bg-sky-500  text-sky-100;
+		@apply bg-sky-500 text-sky-100;
 	}
 	.colorsky5 {
-		@apply bg-sky-700  text-sky-100;
+		@apply bg-sky-700 text-sky-100;
 	}
 	.colorsky6 {
-		@apply bg-sky-900  text-sky-100;
+		@apply bg-sky-900 text-sky-100;
 	}
 	.colorblue1 {
-		@apply bg-blue-50  text-blue-400;
+		@apply bg-blue-50 text-blue-400;
 	}
 	.colorblue2 {
-		@apply bg-blue-100  text-blue-400;
+		@apply bg-blue-100 text-blue-400;
 	}
 	.colorblue3 {
-		@apply bg-blue-300  text-blue-500;
+		@apply bg-blue-300 text-blue-500;
 	}
 	.colorblue4 {
-		@apply bg-blue-500  text-blue-100;
+		@apply bg-blue-500 text-blue-100;
 	}
 	.colorblue5 {
-		@apply bg-blue-700  text-blue-100;
+		@apply bg-blue-700 text-blue-100;
 	}
 	.colorblue6 {
-		@apply bg-blue-900  text-blue-100;
+		@apply bg-blue-900 text-blue-100;
 	}
 	.colorindigo1 {
 		@apply bg-indigo-50 text-indigo-400;

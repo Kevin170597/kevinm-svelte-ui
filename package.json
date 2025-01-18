@@ -63,6 +63,8 @@
 		"@sveltejs/kit": "^2.5.27",
 		"@types/autosize": "^4.0.3",
 		"autosize": "^6.0.1",
+		"embla-carousel-svelte": "^8.5.2",
+		"svelte-dnd-action": "^0.9.54",
 		"svelte-highlight": "^7.4.8"
 	}
 }

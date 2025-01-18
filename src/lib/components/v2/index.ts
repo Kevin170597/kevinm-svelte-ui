@@ -5,3 +5,8 @@ export { default as Icon } from "./Icon.svelte";
 export { default as Grid } from "./Grid.svelte";
 export { default as Flex } from "./Flex.svelte";
 export { default as Input } from "./Input.svelte";
+export { default as Link } from "./Link.svelte";
+export { default as Select } from "./Select.svelte";
+export { default as Image } from "./Image.svelte";
+export { default as FlexDnD } from "./FlexDnD.svelte";
+export { default as GridDnD } from "./GridDnD.svelte";

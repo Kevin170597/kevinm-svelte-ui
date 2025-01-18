@@ -1,12 +1,14 @@
 <script lang="ts">
 	import {
-		ButtonV2 as Button,
+		TextV2 as Text,
 		GridV2 as Grid,
-		FlexV2 as Flex,
 		TitleV2 as Title,
-		CodeBlock,
-		IconV2 as Icon
+		FlexV2 as Flex,
+		ButtonV2 as Button,
+		LinkV2 as Link,
+		SelectV2 as Select
 	} from '$lib';
+	import { CodeBlock } from '$lib';
 
 	type Color =
 		| 'transparent'
@@ -66,47 +68,52 @@
 
 	let sizes: Size[] = $state(['sm', 'md', 'lg', 'xl']);
 
+	let value: string | null = $state(null);
+
+	let countries: { value: string; label: string }[] = $state([
+		{ value: 'us', label: 'United States' },
+		{ value: 'ca', label: 'Canada' },
+		{ value: 'fr', label: 'France' },
+		{ value: 'de', label: 'Germany' },
+		{ value: 'it', label: 'Italy' },
+		{ value: 'uk', label: 'United Kingdom' }
+	]);
+
 	let dark: boolean = $state(false);
 </script>
 
 <div class="h-[100vh] overflow-auto p-8">
 	<Flex s={{ direction: 'col', gap: 4 }}>
-		<Title s={{ color: 'white', size: 'lg' }}>Button</Title>
-		<CodeBlock lang="ts" code={'import { Button } from "sveltekev";'} radius="lg" />
+		<Title s={{ color: 'white', size: 'lg' }}>Select</Title>
+		<CodeBlock lang="ts" code={'import { Select } from "sveltekev";'} radius="lg" />
 		<Title s={{ color: 'white', size: 'lg' }}>Colors</Title>
-		<Flex s={{ gap: 4, items: 'center' }}>
+		<Flex s={{ gap: 4, items: 'center' }} class="p-0">
 			<Title s={{ color: 'white' }}>Color levels</Title>
 			<Button oc={() => (dark = !dark)} s={{ color: 'white', size: 'sm' }}>Toggle theme</Button>
 		</Flex>
-		<Grid s={{ gap: 4, color: dark ? 'black' : 'white' }}>
+		<Grid s={{ gap: 2, color: dark ? 'black' : 'white' }}>
 			{#each colors as color}
 				{#each [1, 2, 3, 4, 5, 6] as colorLevel}
-					<Grid item sz={2}>
-						<Button s={{ color, colorLevel: colorLevel as 1 | 2 | 3 | 4 | 5 | 6 }} class="w-full">
-							{color}
-						</Button>
+					<Grid item sz={6}>
+						<Select
+							s={{ color, colorLevel: colorLevel as 1 | 2 | 3 | 4 | 5 | 6 }}
+							bind:value
+							items={countries}
+						/>
 					</Grid>
 				{/each}
 			{/each}
 		</Grid>
-		<Title s={{ color: 'white', size: 'lg' }}>Sizes</Title>
-		<Grid s={{ gap: 4, color: dark ? 'black' : 'white' }}>
+		<Flex s={{ gap: 4, items: 'center' }} class="p-0">
+			<Title s={{ color: 'white' }}>Sizes</Title>
+			<Button oc={() => (dark = !dark)} s={{ color: 'white', size: 'sm' }}>Toggle theme</Button>
+		</Flex>
+		<Grid s={{ gap: 2, color: dark ? 'black' : 'white' }}>
 			{#each sizes as size}
-				<Grid item sz={2}>
-					<Button s={{ color: 'slate', colorLevel: 3, size }} class="w-full">
-						{size}
-					</Button>
+				<Grid item sz={6}>
+					<Select s={{ color: 'slate', colorLevel: 4, size }} bind:value items={countries} />
 				</Grid>
 			{/each}
-		</Grid>
-		<Title s={{ color: 'white', size: 'lg' }}>Sizes</Title>
-		<Grid s={{ gap: 4, color: dark ? 'black' : 'white' }}>
-			<Grid item sz={2}>
-				<Button s={{ color: 'red', colorLevel: 2, startIcon: 'delete' }} class="w-full">Delete</Button>
-			</Grid>
-			<Grid item sz={2}>
-				<Button s={{ color: 'indigo', colorLevel: 5, endIcon: 'cart' }} class="w-full">Cart</Button>
-			</Grid>
 		</Grid>
 	</Flex>
 </div>

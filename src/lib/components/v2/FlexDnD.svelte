@@ -1,5 +1,7 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
+	import { dndzone } from 'svelte-dnd-action';
+	import { flip } from 'svelte/animate';
 
 	type Gap = 0 | 1 | 2 | 4 | 8 | 12 | 16;
 
@@ -41,13 +43,20 @@
 
 	let {
 		children,
+		items,
 		s,
 		class: clss
-	}: {
-		children: Snippet;
-		s?: Style;
-		class?: string;
-	} = $props();
+	}: { children: Snippet<[item: any]>; items: any[]; s?: Style; class?: string } = $props();
+
+	export const handleDndConsider = (e: CustomEvent) => {
+		console.log(e.detail.items);
+		items = e.detail.items;
+	};
+
+	export const handleDndFinalize = (e: CustomEvent) => {
+		console.log(e.detail.items);
+		items = e.detail.items;
+	};
 </script>
 
 <div
@@ -55,8 +64,15 @@
 		color{s?.color ? s.color : 'transparent'}{s?.colorLevel ? `${s.colorLevel}` : 3} 
 		{s?.direction} items{s?.items} justify{s?.justify} 
 		w-full p-4 rounded-lg transition-all duration-200 {clss}"
+	use:dndzone={{ items, flipDurationMs: 300, dropTargetStyle: { outline: 'none' } }}
+	onconsider={handleDndConsider}
+	onfinalize={handleDndFinalize}
 >
-	{@render children()}
+	{#each items as item (item.id)}
+		<div animate:flip={{ duration: 300 }}>
+			{@render children?.(item)}
+		</div>
+	{/each}
 </div>
 
 <style lang="postcss">

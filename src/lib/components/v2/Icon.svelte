@@ -484,4 +484,83 @@
 	.fillrose {
 		@apply fill-rose-500;
 	}
+
+	.stroketransparent {
+		@apply stroke-transparent;
+	}
+	.strokewhite {
+		@apply stroke-white;
+	}
+	.strokeblack {
+		@apply stroke-black;
+	}
+	.strokeslate {
+		@apply stroke-slate-500;
+	}
+	.strokezinc {
+		@apply stroke-zinc-500;
+	}
+	.strokegray {
+		@apply stroke-gray-500;
+	}
+	.strokeneutral {
+		@apply stroke-neutral-500;
+	}
+	.strokestone {
+		@apply stroke-stone-500;
+	}
+	.strokered {
+		@apply stroke-red-500;
+	}
+	.strokeorange {
+		@apply stroke-orange-500;
+	}
+	.strokeamber {
+		@apply stroke-amber-500;
+	}
+	.strokewhite {
+		@apply stroke-white;
+	}
+	.strokeyellow {
+		@apply stroke-yellow-500;
+	}
+	.strokelime {
+		@apply stroke-lime-500;
+	}
+	.strokegreen {
+		@apply stroke-green-500;
+	}
+	.strokeemerald {
+		@apply stroke-emerald-500;
+	}
+	.stroketeal {
+		@apply stroke-teal-500;
+	}
+	.strokecyan {
+		@apply stroke-cyan-500;
+	}
+	.strokesky {
+		@apply stroke-sky-500;
+	}
+	.strokeblue {
+		@apply stroke-blue-500;
+	}
+	.strokeindigo {
+		@apply stroke-indigo-500;
+	}
+	.strokeviolet {
+		@apply stroke-violet-500;
+	}
+	.strokepurple {
+		@apply stroke-purple-500;
+	}
+	.strokefuchsia {
+		@apply stroke-fuchsia-500;
+	}
+	.strokepink {
+		@apply stroke-pink-500;
+	}
+	.strokerose {
+		@apply stroke-rose-500;
+	}
 </style>

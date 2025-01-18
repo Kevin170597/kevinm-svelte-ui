@@ -43,30 +43,59 @@
 		class: clss,
 		oc
 	}: { children: Snippet; s?: Style; class?: string; oc?: () => void } = $props();
+
+	let colorLevel: 1 | 2 | 3 | 4 | 5 | 6 = $derived.by(() => {
+		if (s?.colorLevel === 1) return 4;
+		if (s?.colorLevel === 2) return 4;
+		if (s?.colorLevel === 3) return 4;
+		if (s?.colorLevel === 4) return 2;
+		if (s?.colorLevel === 5) return 2;
+		if (s?.colorLevel === 6) return 2;
+		return 3;
+	});
 </script>
 
 <button
 	onclick={oc}
 	class="color{s?.color ? s.color : 'white'}{s?.colorLevel ? `${s.colorLevel}` : 3}
-        w-fit flex items-center justify-center gap-2 px-4 py-2 rounded-lg transition-all duration-300 {clss}"
+        w-fit flex items-center justify-center gap-2 px-4 py-2 rounded-lg transition-all duration-200 {clss}"
 >
 	{#if s?.startIcon}
 		<Icon
 			name={s.startIcon}
 			s={{
-				color: s?.color ? s.color : 'slate',
+				color: s?.color
+					? s.color === 'black'
+						? 'white'
+						: s.color === 'white'
+							? 'black'
+							: s.color
+					: 'slate',
 				size: s?.size ? s.size : 'md'
 			}}
 		/>
 	{/if}
-	<Text s={{ bold: true, size: s?.size ? s.size : 'md' }}>
+	<Text
+		s={{
+			bold: true,
+			size: s?.size ? s.size : 'md',
+			color: s?.color ? (s.color === 'black' ? 'white' : (s.color === 'white' ? 'black' : s.color)) : 'black',
+			colorLevel: colorLevel
+		}}
+	>
 		{@render children()}
 	</Text>
 	{#if s?.endIcon}
 		<Icon
 			name={s.endIcon}
 			s={{
-				color: s?.color ? s.color : 'slate',
+				color: s?.color
+					? s.color === 'black'
+						? 'white'
+						: s.color === 'white'
+							? 'black'
+							: s.color
+					: 'slate',
 				size: s?.size ? s.size : 'md'
 			}}
 		/>

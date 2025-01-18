@@ -15,9 +15,14 @@
             <a href="/v2/button" class="text-white">Button</a>
 			<a href="/v2/input" class="text-white">Input</a>
 			<a href="/v2/flex" class="text-white">Flex</a>
+			<a href="/v2/flex-dnd" class="text-white">Flex DnD</a>
 			<a href="/v2/grid" class="text-white">Grid</a>
+			<a href="/v2/grid-dnd" class="text-white">Grid DnD</a>
 			<a href="/v2/text" class="text-white">Text</a>
 			<a href="/v2/title" class="text-white">Title</a>
+			<a href="/v2/link" class="text-white">Link</a>
+			<a href="/v2/select" class="text-white">Select</a>
+			<a href="/v2/image" class="text-white">Image</a>
         </div>
 		<div class="w-[85%]">
             {@render children?.()}

@@ -5,7 +5,8 @@
 		FlexV2 as Flex,
 		TitleV2 as Title,
 		CodeBlock,
-		IconV2 as Icon
+		FlexDnDV2 as FlexDnD,
+		GridDnDV2 as GridDnD
 	} from '$lib';
 
 	type Color =
@@ -36,6 +37,7 @@
 		| 'rose';
 
 	let colors: Color[] = $state([
+		'transparent',
 		'white',
 		'black',
 		'slate',
@@ -67,12 +69,35 @@
 	let sizes: Size[] = $state(['sm', 'md', 'lg', 'xl']);
 
 	let dark: boolean = $state(false);
+
+	let items = [
+		{
+			id: 1,
+			name: 'Item 1'
+		},
+		{
+			id: 2,
+			name: 'Item 2'
+		},
+		{
+			id: 3,
+			name: 'Item 3'
+		},
+		{
+			id: 4,
+			name: 'Item 4'
+		},
+		{
+			id: 5,
+			name: 'Item 6'
+		}
+	];
 </script>
 
 <div class="h-[100vh] overflow-auto p-8">
 	<Flex s={{ direction: 'col', gap: 4 }}>
-		<Title s={{ color: 'white', size: 'lg' }}>Button</Title>
-		<CodeBlock lang="ts" code={'import { Button } from "sveltekev";'} radius="lg" />
+		<Title s={{ color: 'white', size: 'lg' }}>GridDnD</Title>
+		<CodeBlock lang="ts" code={'import { GridDnD } from "sveltekev";'} radius="lg" />
 		<Title s={{ color: 'white', size: 'lg' }}>Colors</Title>
 		<Flex s={{ gap: 4, items: 'center' }}>
 			<Title s={{ color: 'white' }}>Color levels</Title>
@@ -81,32 +106,23 @@
 		<Grid s={{ gap: 4, color: dark ? 'black' : 'white' }}>
 			{#each colors as color}
 				{#each [1, 2, 3, 4, 5, 6] as colorLevel}
-					<Grid item sz={2}>
-						<Button s={{ color, colorLevel: colorLevel as 1 | 2 | 3 | 4 | 5 | 6 }} class="w-full">
-							{color}
-						</Button>
+					<Grid item sz={12}>
+						<GridDnD
+                            sz={3}
+							{items}
+							s={{
+								gap: 4,
+								color,
+								colorLevel: colorLevel as 1 | 2 | 3 | 4 | 5 | 6
+							}}
+						>
+							{#snippet children(item: any)}
+								<Button class="w-full">{item.name}</Button>
+							{/snippet}
+						</GridDnD>
 					</Grid>
 				{/each}
 			{/each}
-		</Grid>
-		<Title s={{ color: 'white', size: 'lg' }}>Sizes</Title>
-		<Grid s={{ gap: 4, color: dark ? 'black' : 'white' }}>
-			{#each sizes as size}
-				<Grid item sz={2}>
-					<Button s={{ color: 'slate', colorLevel: 3, size }} class="w-full">
-						{size}
-					</Button>
-				</Grid>
-			{/each}
-		</Grid>
-		<Title s={{ color: 'white', size: 'lg' }}>Sizes</Title>
-		<Grid s={{ gap: 4, color: dark ? 'black' : 'white' }}>
-			<Grid item sz={2}>
-				<Button s={{ color: 'red', colorLevel: 2, startIcon: 'delete' }} class="w-full">Delete</Button>
-			</Grid>
-			<Grid item sz={2}>
-				<Button s={{ color: 'indigo', colorLevel: 5, endIcon: 'cart' }} class="w-full">Cart</Button>
-			</Grid>
 		</Grid>
 	</Flex>
 </div>
